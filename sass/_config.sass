@@ -1,0 +1,61 @@
+// USER VARIABLES SECTION
+
+$accent: #7AB51D // Accent Color
+$fontsize: 22px // Body Font Size
+$textcolor: #3D5B74 // Text Color
+$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$PTSans: PTSans, sans-serif // PTSans Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 20px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+@import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+@import '/app/libs/Magnific-Popup-master/dist/magnific-popup.css'
+@import '/app/libs/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css'
+@import '/app/libs/font-awesome-4.7.0/css/font-awesome.min.css'
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		// font-display: swap // Uncomment to initially display system fonts
+		src: local($fname), url($furl) format('woff')
+
+@include font('PTSans', normal, 400, '../fonts/PTSans-Regular.woff')
+@include font('PTSans', italic, 400, '../fonts/PTSans-Italic.woff')
+@include font('PTSans', normal, 700, '../fonts/PTSans-Bold.woff')
+@include font('PTSans', italic, 700, '../fonts/PTSans-BoldItalic.woff')
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $PTSans
+	font-size: $fontsize
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	overflow-x: hidden
+	color: $textcolor
